@@ -7,7 +7,7 @@ import { api } from '../../services/api';
 import { clearCharacter } from '../../utils/clearCharacter';
 
 
-export const ModalPokemon = ( { name, closeModal } :ModalPokemonProps) => {
+export const ModalPokemon = ( { name, closeModal, backgroundModal } :ModalPokemonProps) => {
 
     const { getPokemonAllAtributes, pokemonAllAtributes, pokemonSpecies } = usePokemons()
 
@@ -23,8 +23,9 @@ export const ModalPokemon = ( { name, closeModal } :ModalPokemonProps) => {
         }
     },[])
 
+    console.log(backgroundModal, 'rsrsrs')
     return (
-        <ModalContainer>
+        <ModalContainer backgroundModal={backgroundModal && backgroundModal || 'white'} >
             <ContainerArrow onClick={closeModal} >
                 <ArrowLeft size={40} />
             </ContainerArrow>

@@ -9,6 +9,7 @@ export const Container = styled.div`
 export const Button = styled.button`
     width: 134px;
     height: 20px;
+    cursor: pointer;
     
     background: #F2F2F2;
     border-radius: 4px;

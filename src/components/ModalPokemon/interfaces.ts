@@ -1,6 +1,10 @@
-export interface ModalPokemonProps {
+export interface ModalPokemonProps extends ModalPokemonStylesProps {
     name: string;
     closeModal: () => void
+}
+
+export interface ModalPokemonStylesProps {
+    backgroundModal?: string
 }
 
 export interface StatsProps {        

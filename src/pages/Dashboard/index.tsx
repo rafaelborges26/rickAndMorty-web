@@ -42,7 +42,7 @@ export const Dashboard = () => {
                 <Title>Mais de 250 Pokemons para você escolher o seu favorito</Title>                               
                 <Input type='search' placeholder='Pesquisar pokemon' icon={MagnifyingGlass} onChange={handleSearch}  id='searchPokemon' />
 
-                { isOpenModal && (<ModalPokemon name={selectedPokemon} closeModal={() => setIsOpenModal(false)} />) }
+                { isOpenModal && (<ModalPokemon name={selectedPokemon} closeModal={() => setIsOpenModal(false)} backgroundModal={types[0].name}  />) }
 
                 <ContainerSelect>
                     <Select title="Tipo" items={types} />

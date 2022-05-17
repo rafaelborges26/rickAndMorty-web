@@ -1,18 +1,28 @@
 import styled from 'styled-components'
 import Theme from '../../theme';
+import { CardPropsStyles } from './interfaces';
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.div<CardPropsStyles>`
     border-radius: 15px;
     width: 160px;
     height: 110px;
-    //background: ${Theme.colors.backgroundCardEletric};;
-    background: linear-gradient(8.46deg, #46A487 -0.58%, #46D7AB 108.38%);
     border: transparent;
     margin: 0 11px 18px;
     padding: 0.625rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+
+    background: ${(props => 
+        props.backgroundCard === 'bug' ? `${Theme.colors.backgroundCardPlant}` 
+        : props.backgroundCard === 'fire' ? `${Theme.colors.backgroundCardFire}` 
+        : props.backgroundCard === 'water' || 'ice' ? `${Theme.colors.backgroundCardWater}` 
+        : props.backgroundCard === 'psychiq' ? `${Theme.colors.backgroundCardPsiquic}` 
+        : props.backgroundCard === 'electric' ? `${Theme.colors.backgroundCardEletric}` 
+        : props.backgroundCard === 'ghost' ? `${Theme.colors.backgroundCardGhost}` 
+        : `${Theme.colors.inputBorder}40`
+    )};
 
     img {
         width: 77px;
@@ -45,7 +55,7 @@ export const InfoContainer = styled.div`
     }
 `;
 
-export const CategoryContainer = styled.div`
+export const CategoryContainer = styled.div<CardPropsStyles>`
     display: flex;
     flex-direction: column;
 
@@ -62,11 +72,21 @@ export const CategoryContainer = styled.div`
 
         //border: 1px solid ${Theme.colors.backgroundCardEletric};
         //background: ${Theme.colors.backgroundCardEletric}40;
+        background: ${(props => 
+        props.backgroundCard === 'bug' ? `${Theme.colors.backgroundCardPlant}40` 
+        : props.backgroundCard === 'fire' ? `${Theme.colors.backgroundCardFire}40` 
+        : props.backgroundCard === 'water' ? `${Theme.colors.backgroundCardWater}40` 
+        : props.backgroundCard === 'psychiq' ? `${Theme.colors.backgroundCardPsiquic}40` 
+        : props.backgroundCard === 'electric' ? `${Theme.colors.backgroundCardEletric}40` 
+        : props.backgroundCard === 'ghost' ? `${Theme.colors.backgroundCardGhost}40` 
+        : `${Theme.colors.inputBorder}40`
+    )};
+
+
         border-radius: 38px;
 
-        //background: #FFFFFF;
+        
         background-blend-mode: soft-light;
-        //opacity: 0.4;
 
         & + span {
             margin-top: 6px;

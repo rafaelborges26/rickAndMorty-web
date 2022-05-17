@@ -1,16 +1,28 @@
 import styled from 'styled-components'
 import Theme from '../../theme';
+import { ModalPokemonStylesProps } from './interfaces';
 
-export const ModalContainer = styled.div`
+export const ModalContainer = styled.div<ModalPokemonStylesProps>`
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 150px 100px 100px;
-    background: red;
+    
     width: 70vw;
     height: 600px;
     position: absolute;
     z-index: 2;
+    border-radius: 15px;
+
+    background: ${(props => 
+        props.backgroundModal === 'bug' || props.backgroundModal === 'poison' ? `${Theme.colors.backgroundCardPlant}` 
+        : props.backgroundModal === 'fire' ? `${Theme.colors.backgroundCardFire}` 
+        : props.backgroundModal === 'water' ? `${Theme.colors.backgroundCardWater}` 
+        : props.backgroundModal === 'psychiq' ? `${Theme.colors.backgroundCardPsiquic}` 
+        : props.backgroundModal === 'electric' ? `${Theme.colors.backgroundCardEletric}` 
+        : props.backgroundModal === 'ghost' ? `${Theme.colors.backgroundCardGhost}` 
+        : `${Theme.colors.inputBorder}`
+    )};
 
     @media (max-width: ${Theme.breakPoints.ipadPro}) {
         flex-direction: column;
@@ -29,6 +41,7 @@ export const ContainerArrow = styled.button`
     top: 20px;
     background: transparent;
     border: none;
+    cursor: pointer;
 `;
 
 export const ImageContainer = styled.div`
