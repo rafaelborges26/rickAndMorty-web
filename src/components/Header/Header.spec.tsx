@@ -1,22 +1,33 @@
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 
-import { Header } from '../Header'
+import { Header } from ".";
 
-test('should render button  ', async () => {
-    const { container, getByText } = render(<Header />)
+test("should render header", () => {
+  const { container } = render(<Header />);
 
-    const buttonPokemons = getByText('Pokemons');
-    const buttonContato = getByText('Contato');
-    const buttonHome = getByText('Home');
+  expect(container).toBeTruthy();
+});
 
-    await waitFor(() => {
-        act(() => {
-            fireEvent.click(buttonPokemons)
-        fireEvent.click(buttonContato)
-        fireEvent.click(buttonHome)
-        })
-    })
+test("should render button header", async () => {
+  const { container, getByText } = render(<Header />);
 
-    expect(buttonPokemons).toBeCalled()
-})
+  const buttonCharacter = getByText("Personagens");
+  const buttonPlace = getByText("Lugares Famosos");
+  const buttonEpisode = getByText("Episódios");
 
+  await waitFor(() => {
+    act(() => {
+      fireEvent.click(buttonCharacter);
+      fireEvent.click(buttonPlace);
+      fireEvent.click(buttonEpisode);
+    });
+  });
+
+  expect(buttonCharacter).toBeCalled();
+});

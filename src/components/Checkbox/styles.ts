@@ -1,13 +1,14 @@
-import styled from 'styled-components'
-import Theme from '../../theme';
+import styled from "styled-components";
+
+import Theme from "../../theme";
 
 export const CheckboxContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    margin-top: 4px;
-    input {
-        margin-right: 10px;
-        margin-left: 20px;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-top: ${Theme.spacings.space02};
+  input {
+    margin-right: ${Theme.spacings.space05};
+    margin-left: ${Theme.spacings.space10};
+  }
 `;

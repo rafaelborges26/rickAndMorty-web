@@ -1,96 +1,126 @@
-import styled from 'styled-components'
-import Theme from '../../theme';
-import { CardPropsStyles } from './interfaces';
+import styled, { css } from 'styled-components';
+import Theme from '../../theme'
+import { ICardStatus } from './interfaces'
 
-export const CardContainer = styled.div<CardPropsStyles>`
-    border-radius: 15px;
-    width: 160px;
-    height: 110px;
-    border: transparent;
-    margin: 0 11px 18px;
-    padding: 0.625rem;
+export const CardContainer = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    background: ${Theme.colors.brown};
+    height: ${Theme.spacings.space42};
+    width: ${Theme.spacings.space40};
+    border-radius: 4px;
 
-    background: ${(props => 
-        props.backgroundCard === 'bug' ? `${Theme.colors.backgroundCardPlant}` 
-        : props.backgroundCard === 'fire' ? `${Theme.colors.backgroundCardFire}` 
-        : props.backgroundCard === 'water' || 'ice' ? `${Theme.colors.backgroundCardWater}` 
-        : props.backgroundCard === 'psychiq' ? `${Theme.colors.backgroundCardPsiquic}` 
-        : props.backgroundCard === 'electric' ? `${Theme.colors.backgroundCardEletric}` 
-        : props.backgroundCard === 'ghost' ? `${Theme.colors.backgroundCardGhost}` 
-        : `${Theme.colors.inputBorder}40`
-    )};
 
-    img {
-        width: 77px;
-        height: 95px;
-        padding: 2px;
+    @media (max-width: ${Theme.breakPoints.ipad}) {
+        height: ${Theme.spacings.space30};
+        width: ${Theme.spacings.space33};
     }
 
-    @media (max-width: ${Theme.breakPoints.mobile}) {
-        margin: 0 6px 10px;
-        width: 140px;
-        height: 94px;
-
-        img {
-            width: 66px;
-            height: 75px;
-            padding: 2px;
-        }
+    @media (max-width: ${Theme.breakPoints.mediumMobile}) {
+        width: ${Theme.spacings.space32};
     }
+`
 
+export const ImageCard = styled.img`
+    width: ${Theme.porcentages.porcentage10};
+    margin-right: ${Theme.spacings.space02};
     
 `
 
-export const InfoContainer = styled.div`
-    p {
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 14px;
-        margin-bottom: 10px;
-        color: ${Theme.colors.textWhite};
-    }
-`;
+export const CardInfo = styled.div`
+    width: ${Theme.porcentages.porcentage10};
+    margin-bottom: ${Theme.spacings.space01};
 
-export const CategoryContainer = styled.div<CardPropsStyles>`
-    display: flex;
-    flex-direction: column;
-
-    span {
-        display: flex;
-        font-weight: 500;
-        font-size: 8px;
-        align-items: center;
-        justify-content: center;
-        padding: 4px;
-        width: 48px;
-        height: 20px;
+    h3 {
+        font-weight: ${Theme.font.weight.bold};
+        font-size: ${Theme.sizes.textMedium};
+        line-height: ${Theme.spacings.space10};
         color: ${Theme.colors.textWhite};
 
-        //border: 1px solid ${Theme.colors.backgroundCardEletric};
-        //background: ${Theme.colors.backgroundCardEletric}40;
-        background: ${(props => 
-        props.backgroundCard === 'bug' ? `${Theme.colors.backgroundCardPlant}40` 
-        : props.backgroundCard === 'fire' ? `${Theme.colors.backgroundCardFire}40` 
-        : props.backgroundCard === 'water' ? `${Theme.colors.backgroundCardWater}40` 
-        : props.backgroundCard === 'psychiq' ? `${Theme.colors.backgroundCardPsiquic}40` 
-        : props.backgroundCard === 'electric' ? `${Theme.colors.backgroundCardEletric}40` 
-        : props.backgroundCard === 'ghost' ? `${Theme.colors.backgroundCardGhost}40` 
-        : `${Theme.colors.inputBorder}40`
-    )};
-
-
-        border-radius: 38px;
-
-        
-        background-blend-mode: soft-light;
-
-        & + span {
-            margin-top: 6px;
+        @media (max-width: ${Theme.breakPoints.ipad}) {
+            font-size: ${Theme.spacings.space06}; 
+            line-height: ${Theme.spacings.space07};
         }
 
     }
-`;
+
+`
+
+export const Status = styled.div`
+    display: flex;
+    margin-bottom: ${Theme.spacings.space01}; 
+
+    span {
+        font-weight: ${Theme.font.weight.normal};
+        font-size: ${Theme.sizes.textXSmall};
+        line-height: ${Theme.sizes.textMedium};
+        color: ${Theme.colors.textWhite};
+    
+
+        @media (max-width: ${Theme.breakPoints.ipad}) {
+            font-size: ${Theme.spacings.space06}; 
+            line-height: ${Theme.spacings.space07};
+        }
+    
+    }
+
+`
+
+export const Circle = styled.div<ICardStatus>`
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: ${Theme.spacings.space05}; 
+
+    ${(props) =>
+      props.status === "Alive" &&
+      css`
+        background: ${Theme.colors.green};
+    `}
+    
+    ${(props) =>
+      props.status === "Dead" &&
+      css`
+        background: ${Theme.colors.textWhite};
+    `}
+
+
+    ${(props) =>
+      props.status === "Unknown" &&
+      css`
+        background: ${Theme.colors.blue};
+    `}
+
+    `;
+
+
+export const Apparition = styled.div`
+    margin-bottom: ${Theme.spacings.space01}; 
+
+    p {
+        font-weight: ${Theme.sizes.textMedium};
+        font-size: ${Theme.sizes.textXSmall};
+        line-height: ${Theme.sizes.textMedium};
+        color: ${Theme.colors.gray};
+
+        @media (max-width: ${Theme.breakPoints.ipad}) {
+            font-size: ${Theme.spacings.space04};  
+            line-height: ${Theme.spacings.space06}; 
+        }
+
+    }
+
+    span {
+
+        font-weight: ${Theme.sizes.textMedium};
+        font-size: ${Theme.sizes.textSmall};
+        line-height: ${Theme.spacings.space08};
+        color: ${Theme.colors.textWhite};
+
+        @media (max-width: ${Theme.breakPoints.ipad}) {
+            font-size: ${Theme.spacings.space05};
+            line-height: ${Theme.spacings.space06};
+        }
+
+    }
+`
+

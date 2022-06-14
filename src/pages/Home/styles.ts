@@ -1,122 +1,48 @@
-import styled from 'styled-components'
-import Theme from '../../theme';
+import styled from "styled-components";
+
+import Theme from "../../theme";
 
 export const Container = styled.div``;
 
 export const Content = styled.div`
-    display: flex;
-    margin-top: 67px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: ${Theme.spacings.space26};
 
-    
-
-    @media (max-width: ${Theme.breakPoints.ipadPro}) {
-        flex-direction: column;    
-    }
-
-`
-
-export const ContainerInfo = styled.div`
-    width: 40%;
-    display: flex;
+  @media (max-width: ${Theme.breakPoints.ipadPro}) {
     flex-direction: column;
-    //margin-left: 167px;
-    align-items: end;
-
-    p {
-        & + p {
-            margin-bottom: 43px;
-        }
-    }
-
-    h2 {
-        & + h2 {
-            margin-bottom: 18px;
-        }
-    }
-
-    @media (max-width: ${Theme.breakPoints.ipadPro}) {
-        align-items: center;
-        width: 100%
-    }
-    
+  }
 `;
 
-export const ContentInfo = styled.div`
-    display: flex;
-    flex-direction: column;
-    
-    align-items: start;
+export const Title = styled.h5`
+  color: ${Theme.colors.blue};
+  font-weight: ${Theme.font.weight.bold};
+  font-size: ${Theme.sizes.heading04};
+  line-height: ${Theme.spacings.space17};
+  text-align: center;
+
+  font-size: ${Theme.sizes.heading04};
+
+  @media (max-width: ${Theme.breakPoints.mobile}) {
+    font-size: ${Theme.spacings.space09};
+    line-height: ${Theme.spacings.space13};
+  }
 `;
 
-export const Title = styled.h2`
-    font-style: normal;
-    font-weight: 800;
-    font-size: 54px;
-    line-height: 76px;
+export const ContentImage = styled.img`
+  width: ${Theme.spacings.space38};
+  margin-top: ${Theme.spacings.space21};
+  margin-bottom: ${Theme.spacings.space20};
 
-    @media (max-width: ${Theme.breakPoints.notebook}) {
-        font-size: 42px;
-        line-height: 60px;
-    }
-
-    @media (max-width: ${Theme.breakPoints.ipadPro}) {
-        font-size: 64px;
-        line-height: 80px;
-    }
-
-    @media (max-width: ${Theme.breakPoints.mobile}) {
-        font-size: 42px;
-        line-height: 60px;
-    }
-
-    @media (max-width: ${Theme.breakPoints.mediumMobile}) {
-        font-size: 32px;
-        line-height: 40px;
-    }
-
+  @media (max-width: ${Theme.breakPoints.mobile}) {
+    width: ${Theme.spacings.space39};
+    margin-top: ${Theme.spacings.space21};
+    margin-bottom: ${Theme.spacings.space20};
+  }
 `;
 
-export const Description = styled.p`
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 36px;
-
-    letter-spacing: 0.02em;
-    color: ${Theme.colors.textDark};
-
-    @media (max-width: ${Theme.breakPoints.notebook}) {
-        font-size: 14px;
-        line-height: 28px;
-    }
-
-    @media (max-width: ${Theme.breakPoints.ipadPro}) {
-        font-size: 18px;
-        line-height: 40px;
-    }
-
-    @media (max-width: ${Theme.breakPoints.mobile}) {
-        font-size: 16px;
-        line-height: 30px;
-    }
-
-    @media (max-width: ${Theme.breakPoints.mediumMobile}) {
-        font-size: 12px;
-        line-height: 22px;
-    }
-`;
-
-export const ContentImage = styled.div`
-    width: 60%;
-    display: flex;
-    flex-direction: row;
-    margin-left: 29px;
-
-    img {
-        width: 100%;
-    }
-
-    @media (max-width: ${Theme.breakPoints.ipadPro}) {
-        width: 100%;
-        margin-left: 0;
-    }
+export const Text = styled.span`
+  margin-top: ${Theme.spacings.space20};
+  color: ${Theme.colors.textBlack};
 `;

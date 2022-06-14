@@ -1,25 +1,25 @@
-import { useState } from "react"
-import { CheckboxProps } from "./interface"
-import { CheckboxContainer } from "./styles"
-import { usePokemons } from '../../hooks/usePokemons'
+import { useState } from "react";
 
+import { CheckboxProps } from "./interface";
+import { CheckboxContainer } from "./styles";
 
-export const Checkbox = ( {name, value, onSelectCheckbox, ...rest} :CheckboxProps ) => {
+export function Checkbox({
+  name,
+  value,
+  onSelectCheckbox,
+  ...rest
+}: CheckboxProps) {
 
-    const { filterPokemonforType, typePokemonSelected } = usePokemons()
-
-    console.log(typePokemonSelected, name, 'test')
-
-    const handleClickCheck = () => {
-        onSelectCheckbox(name)
-        filterPokemonforType(name)
-    }
-
-    return (
-        <CheckboxContainer onClick={handleClickCheck} >
-            <input {...rest} type="checkbox" onChange={() => {}} checked={typePokemonSelected === name} value={value} />
-            <span>{name}</span>
-        </CheckboxContainer>
-        
-    )
+  return (
+    <CheckboxContainer>
+      <input
+        {...rest}
+        type="checkbox"
+        onChange={() => {}}
+        checked={false}
+        value={value}
+      />
+      <span>{name}</span>
+    </CheckboxContainer>
+  );
 }

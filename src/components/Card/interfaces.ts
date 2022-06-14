@@ -1,15 +1,14 @@
-import { HTMLAttributes } from "react";
-
-export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-    name: string;
+export interface ICardStatus {
+    status: 'Alive' | 'Dead' | 'Unknown'
 }
 
-export interface CardPropsStyles {
-    backgroundCard: string;
+export interface ICard extends ICardStyles {
+    name: string
+    image: string
+    status: 'Alive' | 'Dead' | 'Unknown'
+    episodes: string[]
 }
 
-export interface TypesProps {
-    type: {
-        name: string;
-    }
+export interface ICardStyles {
+    variations?: 'primary' | 'secondary'
 }

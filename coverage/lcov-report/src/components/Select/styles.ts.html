@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>47/47</span>
+                <span class='fraction'>65/65</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">50% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>47/47</span>
+                <span class='fraction'>65/65</span>
             </div>
         
             
@@ -109,7 +109,26 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -155,60 +174,98 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import styled, { css } from 'styled-components'
-import { SelectProps } from './interface'
-import Theme from '../../theme';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import styled from 'styled-components';
+import Theme from "../../theme";
 &nbsp;
-export const Container = styled.div`
-    width: 134px;
-`;
+interface PropsSelect {
+    multiselect: boolean
+}
 &nbsp;
-export const Button = styled.button`
-    width: 134px;
-    height: 20px;
-    cursor: pointer;
-    
-    background: #F2F2F2;
-    border-radius: 4px;
-    border: 1px solid rgba(33, 33, 33, 0.1);
-&nbsp;
-&nbsp;
-    display: flex;
+export const Container = styled.div&lt;PropsSelect&gt;`
     position: relative;
-    justify-content: center;
+    display: block;
+    max-width: 62.5rem;
+        width: 100%;
 &nbsp;
-    svg {
+    height: ${props =&gt; props.multiselect<span class="branch-0 cbranch-no" title="branch not covered" > ? `${Theme.spacings.space31}` </span>: `${Theme.spacings.space29}`};
+    display: flex;
+    flex-direction: column;
+    label {
+        left: 23px;
+        top: -10px;
         position: absolute;
-        right: 6px;
+        font-size: ${Theme.sizes.textMedium};
+        letter-spacing: 0.4px;
+        color: ${Theme.colors.blue};
+        background: ${Theme.colors.textWhite};
+&nbsp;
+        @media (max-width: ${Theme.breakPoints.mobile}) {
+          font-size: ${Theme.sizes.textSmall};
+          
+        }
+&nbsp;
+    }
+    select {
+        width: 100%;        
+        height: ${props =&gt; props.multiselect<span class="branch-0 cbranch-no" title="branch not covered" > ? `${Theme.spacings.space29}` </span>: `${Theme.spacings.space22}`} ; 
+        border-radius: ${Theme.spacings.space02};
+        padding: ${Theme.spacings.space05} ${Theme.spacings.space10};
+        border: ${Theme.spacings.space00} solid ${Theme.colors.blue};
+        color: ${Theme.colors.blue}; 
+        
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+&nbsp;
+        background: ${Theme.colors.textWhite};
+        align-items: center;
+        @media (max-width: ${Theme.breakPoints.mobile}) {
+            //width: ${Theme.spacings.space40};
+        }
+&nbsp;
     }
 `;
 &nbsp;
-export const SelectOptions = styled.div&lt;SelectProps&gt;`
-    background: ${Theme.colors.inputContainer};
-;
-    width: inherit;
-    padding-top: ${(<span class="fstat-no" title="function not covered" >props =&gt; props.active ? '4px' : 0 </span>)};
-    border-radius: 2%;
-    position: absolute;
-    z-index: 1;
-    
-    height: ${(props =&gt; props.active ? 'auto' : 0 )};
+export const Triangle = styled.div`
+  position: absolute;
+  width: 0; 
+  height: 0; 
+  right: 0;
+  border-left: ${Theme.spacings.space02} solid transparent;
+  border-right: ${Theme.spacings.space02} solid transparent;
+  border-top: ${Theme.spacings.space02} solid ${Theme.colors.blue};
+  margin-top: ${Theme.spacings.space11};
+  margin-right: ${Theme.spacings.space06};
+  max-width: 62.5rem;
 &nbsp;
-&nbsp;
-    transition: height 0.3s;
-    animation: linear 0.4s ease-in-out linear; ;
-&nbsp;
-&nbsp;
-&nbsp;
-    
-`;</pre></td></tr></table></pre>
+`;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon May 16 2022 23:48:23 GMT-0300 (Horário Padrão de Brasília)
+                at Mon Jun 13 2022 21:43:59 GMT-0300 (Horário Padrão de Brasília)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

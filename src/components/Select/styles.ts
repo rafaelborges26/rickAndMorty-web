@@ -1,47 +1,65 @@
-import styled, { css } from 'styled-components'
-import { SelectProps } from './interface'
-import Theme from '../../theme';
+import styled from 'styled-components';
+import Theme from "../../theme";
 
-export const Container = styled.div`
-    width: 134px;
-`;
+interface PropsSelect {
+    multiselect: boolean
+}
 
-export const Button = styled.button`
-    width: 134px;
-    height: 20px;
-    cursor: pointer;
-    
-    background: #F2F2F2;
-    border-radius: 4px;
-    border: 1px solid rgba(33, 33, 33, 0.1);
-
-
-    display: flex;
+export const Container = styled.div<PropsSelect>`
     position: relative;
-    justify-content: center;
+    display: block;
+    max-width: 62.5rem;
+        width: 100%;
 
-    svg {
+    height: ${props => props.multiselect ? `${Theme.spacings.space31}` : `${Theme.spacings.space29}`};
+    display: flex;
+    flex-direction: column;
+    label {
+        left: 23px;
+        top: -10px;
         position: absolute;
-        right: 6px;
+        font-size: ${Theme.sizes.textMedium};
+        letter-spacing: 0.4px;
+        color: ${Theme.colors.blue};
+        background: ${Theme.colors.textWhite};
+
+        @media (max-width: ${Theme.breakPoints.mobile}) {
+          font-size: ${Theme.sizes.textSmall};
+          
+        }
+
+    }
+    select {
+        width: 100%;        
+        height: ${props => props.multiselect ? `${Theme.spacings.space29}` : `${Theme.spacings.space22}`} ; 
+        border-radius: ${Theme.spacings.space02};
+        padding: ${Theme.spacings.space05} ${Theme.spacings.space10};
+        border: ${Theme.spacings.space00} solid ${Theme.colors.blue};
+        color: ${Theme.colors.blue}; 
+        
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        background: ${Theme.colors.textWhite};
+        align-items: center;
+        @media (max-width: ${Theme.breakPoints.mobile}) {
+            //width: ${Theme.spacings.space40};
+        }
+
     }
 `;
 
-export const SelectOptions = styled.div<SelectProps>`
-    background: ${Theme.colors.inputContainer};
-;
-    width: inherit;
-    padding-top: ${(props => props.active ? '4px' : 0 )};
-    border-radius: 2%;
-    position: absolute;
-    z-index: 1;
-    
-    height: ${(props => props.active ? 'auto' : 0 )};
+export const Triangle = styled.div`
+  position: absolute;
+  width: 0; 
+  height: 0; 
+  right: 0;
+  border-left: ${Theme.spacings.space02} solid transparent;
+  border-right: ${Theme.spacings.space02} solid transparent;
+  border-top: ${Theme.spacings.space02} solid ${Theme.colors.blue};
+  margin-top: ${Theme.spacings.space11};
+  margin-right: ${Theme.spacings.space06};
+  max-width: 62.5rem;
 
-
-    transition: height 0.3s;
-    animation: linear 0.4s ease-in-out linear; ;
-
-
-
-    
 `;

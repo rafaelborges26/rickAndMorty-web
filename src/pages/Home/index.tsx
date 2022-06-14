@@ -1,45 +1,43 @@
-import { useMemo } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { Header, Button } from '../../components'
-import { Container, Content, ContainerInfo, ContentInfo, Title, Description, ContentImage } from './styles'
-import BannerPokemon from '../../assets/BannerPokemon.svg'
-import Theme from '../../theme'
+import { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
-//maxwidth 768 botao pequeo
-export const Home = () => {
+import RickAndMortyPlant from "../../assets/RickAndMortyPlant.png";
+import { Header, Button } from "../../components";
+import Theme from "../../theme";
+import { Container, Content, Title, ContentImage, Text } from "./styles";
 
-    const navigate = useNavigate();
+export function Home() {
+  const navigate = useNavigate();
 
-    const buttonSize = useMemo(() => {
-        if(screen.width <= parseInt(Theme.breakPoints.mediumMobile)) {
-            return 'S'
-        } else if( (screen.width <= parseInt(Theme.breakPoints.ipadPro)) && (screen.width >= (parseInt(Theme.breakPoints.mediumMobile)))){
-            return 'B'
-        } else { 
-            return 'M'
-        }
-    },[])
+  const buttonSize = useMemo(() => {
+    if (screen.width <= parseInt(Theme.breakPoints.mobile)) {
+      return "S";
+    }
+    return "B";
+  }, []);
 
-    return (
-        <Container>
-        <Header/>
-        <Content>
-            <ContainerInfo>
-                <ContentInfo>
-                    <Title>Qual pokemon</Title>
-                    <Title>você escolheria?</Title>
+  return (
+    <Container>
+      <Header />
+      <Content>
+        <Title>Está preparado para navegar no mundo</Title>
+        <Title>de Ricky and Morty ?</Title>
 
-                    <Description>Você pode saber o tipo de Pokémon,</Description>
-                    <Description>seus pontos fortes, fracos e habilidades.</Description>
-                <Button size={buttonSize} onClick={() => {navigate('/dashboard')}} >Veja os pokemons</Button>
-                </ContentInfo>
-            </ContainerInfo>
-            
+        <ContentImage
+          src={RickAndMortyPlant}
+          alt="banner do rick and morty com fundo verde"
+        />
 
-            <ContentImage>
-                <img src={BannerPokemon} alt="banner do pokemon pikachu jogando uma pokebola" />
-            </ContentImage>
-        </Content>
-        </Container>
-    )
+        <Button
+          size={buttonSize}
+          onClick={() => {
+            navigate("/characters");
+          }}
+        >
+          Iniciar Aventura
+        </Button>
+        <Text>©rickandmortyapi.com</Text>
+      </Content>
+    </Container>
+  );
 }

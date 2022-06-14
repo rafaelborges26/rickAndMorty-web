@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>64/64</span>
+                <span class='fraction'>70/70</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>64/64</span>
+                <span class='fraction'>70/70</span>
             </div>
         
             
@@ -126,7 +126,14 @@
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -189,77 +196,91 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import styled from 'styled-components';
-import Theme from '../../theme';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import styled from "styled-components";
+&nbsp;
+import Theme from "../../theme";
 &nbsp;
 export const HeaderContainer = styled.header`
-    width: 100vw;
-    display: flex;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background: ${Theme.colors.dark};
+  box-shadow: 0 ${Theme.spacings.space02} ${Theme.spacings.space08}
+    rgba(1, 28, 64, 0.2);
+&nbsp;
+  @media (max-width: ${Theme.breakPoints.ipadPro}) {
+    height: 4.5rem;
     justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    box-shadow: 0px 4px 16px rgba(1, 28, 64, 0.2);
-&nbsp;
-&nbsp;
-    @media (max-width: ${Theme.breakPoints.ipadPro}) {
-        height: 70px;
-        justify-content: center;
-    }
-`
+  }
+`;
 &nbsp;
 export const ContainerLogo = styled.div`
-    margin: 14px 0 19px 157px;
-    flex: 0.4;
+  margin: 0px 0px 0px ${Theme.spacings.space37};
+  flex: 0.4;
 &nbsp;
-    @media (max-width: ${Theme.breakPoints.ipadPro}) {
-        display: none;
-        flex: 0;
-    }
-`
+  @media (max-width: ${Theme.breakPoints.ipadPro}) {
+    display: none;
+    flex: 0;
+  }
+&nbsp;
+  img {
+    cursor: pointer;
+  }
+&nbsp;
+`;
 &nbsp;
 export const Options = styled.div`
-    display: flex;
-    flex: 0.6;
-    margin-right: 10vw;
+  display: flex;
+  flex: 0.6;
+  margin-right: 10vw;
 &nbsp;
+  button {
+    &amp; + button {
+      margin-left: 6.5rem;
+    }
+  }
+&nbsp;
+  @media (max-width: ${Theme.breakPoints.ipadPro}) {
+    flex: 1;
+    justify-content: center;
+    margin: 0;
+  }
+&nbsp;
+  @media (max-width: ${Theme.breakPoints.mobile}) {
+    margin: ${Theme.spacings.space00} ${Theme.spacings.space06};
     button {
-        &amp; + button {
-            margin-left: 105px;
-        }
+      &amp; + button {
+        margin-left: 4.5rem;
+      }
     }
+  }
 &nbsp;
-    @media (max-width: ${Theme.breakPoints.ipadPro}) {
-        flex: 1;
-        justify-content: center;
-        margin: 0;
+  @media (max-width: ${Theme.breakPoints.mediumMobile}) {
+    button {
+      &amp; + button {
+        margin-left: ${Theme.spacings.space17};
+      }
     }
-&nbsp;
-    @media (max-width: ${Theme.breakPoints.mobile}) {
-        
-        button {
-        &amp; + button {
-            margin-left: 70px;
-        }
-    }
-    }
-&nbsp;
-    @media (max-width: ${Theme.breakPoints.mediumMobile}) {
-        
-        button {
-        &amp; + button {
-            margin-left: 36px;
-        }
-    }
-    }
-`</pre></td></tr></table></pre>
+  }
+`;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon May 16 2022 23:48:23 GMT-0300 (Horário Padrão de Brasília)
+                at Mon Jun 13 2022 21:43:59 GMT-0300 (Horário Padrão de Brasília)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

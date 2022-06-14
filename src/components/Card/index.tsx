@@ -1,51 +1,35 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { api } from '../../services/api';
-import { CardProps, TypesProps, CardPropsStyles } from './interfaces';
-import { CardContainer, InfoContainer, CategoryContainer } from './styles'
-import { usePokemons } from '../../hooks/usePokemons'
+import { ICard } from './interfaces'
+import { CardContainer, CardInfo, ImageCard, Circle, Status, Apparition } from './styles'
 
-export const Card = ( { name, ...rest } :CardProps) => {
-
-    const { getDetailsPokemon, pokemonSpecies, pokemons } = usePokemons()
-
-    const [typePokemon, setTypePokemon] = useState<TypesProps[]>([])
-    const [imagePokemon, setImagePokemon] = useState('')
-
-    const setPokemonDetail = async () => {
-        const responsePokemon = await getDetailsPokemon(name)
-
-        if(responsePokemon){
-            setImagePokemon(responsePokemon.image)
-            setTypePokemon(responsePokemon.types)
-        }
-    }
-
-    useEffect(() => {
-        setPokemonDetail()
-    },[pokemons])
-
-    console.log( typePokemon.length > 0 && typePokemon[0]?.type.name, typePokemon[0]?.type.name, 'typeee')
-
+export const Card = ({ name, image, status, episodes, variations }: ICard) => {
     return (
-        <CardContainer {...rest} backgroundCard={ (typePokemon && typePokemon.length > 0) && typePokemon[0]?.type?.name || 'white'} >
-            
+        <CardContainer  >
+          
+        <ImageCard src={image}  />
+          
+        <CardInfo >
+          <h3>{name}</h3>
+          <Status>
+          <Circle status={status} />
+          <span>{status}</span>
+          </Status>
+          <Apparition>
+            <p>
+            Primeira aparição:
+            </p>
 
-            <InfoContainer>
+            <span>mock</span>
+          </Apparition>
 
-            <p>{name}</p>
+          <Apparition>
+            <p>
+            Ultima aparição:
+            </p>
 
-            <CategoryContainer backgroundCard={pokemonSpecies?.color?.name || 'white'} >
-            {
-                typePokemon && typePokemon.map(item => (
-                    <span key={item.type.name} >{item.type.name}</span>
-                ))
-            }
-            </CategoryContainer>
+            <span>mock</span>
+          </Apparition>
 
-            </InfoContainer>
-            <img src={imagePokemon} alt={`pokemon ${name}`} />
-            
-        </CardContainer>
+        </CardInfo>
+      </CardContainer>
     )
 }

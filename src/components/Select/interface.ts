@@ -1,12 +1,6 @@
-import { ReactNode } from "react";
+import { ReactNode, SelectHTMLAttributes } from "react";
 
-export interface ItemsProps {
-    name: string;
-    url: string
-}
-
-export interface SelectProps {
-    items?: ItemsProps[];
-    active?: boolean
-    title?: string
+export type ISelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
+  name: string;
+  multiselect: boolean;
 }

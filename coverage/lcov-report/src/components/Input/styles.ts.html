@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.25% </span>
+                <span class="strong">89.52% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>89/102</span>
+                <span class='fraction'>94/105</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.25% </span>
+                <span class="strong">89.52% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>89/102</span>
+                <span class='fraction'>94/105</span>
             </div>
         
             
@@ -164,7 +164,14 @@
 <a name='L99'></a><a href='#L99'>99</a>
 <a name='L100'></a><a href='#L100'>100</a>
 <a name='L101'></a><a href='#L101'>101</a>
-<a name='L102'></a><a href='#L102'>102</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -262,118 +269,123 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { InputFieldProps } from './interface';
-import styled, { css } from 'styled-components';
-import Theme from '../../theme';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import styled, { css } from "styled-components";
+&nbsp;
+import Theme from "../../theme";
+import { InputFieldProps } from "./interface";
 &nbsp;
 export const Component = styled.div&lt;any&gt;`
-   position: relative;
-   margin-bottom: 1rem;
-   color: ${Theme.colors.textDark};
-   @media (min-width: ${Theme.breakPoints.ipad}) {
-      ${(props) =&gt;
-         props.variant === 'fill' &amp;&amp;
-         css`
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 20px 0 20px;
-            margin-bottom: 1rem;
-         `}
-   }
-   svg {
-      position: absolute;
-      z-index: 1;
-      left: 1.5rem;
-      top: 0;
-      bottom: 0;
-      margin: auto;
+  position: relative;
+  margin-bottom: ${Theme.spacings.space08};
+  color: ${Theme.colors.textDark};
+  width: 100%;
+  
+  @media (min-width: ${Theme.breakPoints.ipad}) {
+    ${(props) =&gt;
+      props.variant === "fill" &amp;&amp;
+      css`
+        max-width: 62.5rem;
+        width: 100%;
+        margin: 0 ${Theme.spacings.space10};
+        margin-bottom: ${Theme.spacings.space08};
+      `}
+  }
+  img {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    &amp; + input {
+      //padding-left: 3.5rem;
+    }
+    @media (min-width: ${Theme.breakPoints.ipad}) {
+      right: ${Theme.spacings.space09};
+      width: ${Theme.spacings.space11};
+      height: ${Theme.spacings.space11};
       &amp; + input {
-         padding-left: 3.5rem;
+        //padding-left: 5rem;
+        font-size: ${Theme.spacings.space11};
+        &amp;::placeholder {
+          font-size: ${Theme.spacings.space11};
+        }
       }
-      @media (min-width: ${Theme.breakPoints.ipad}) {
-         left: 2rem;
-         width: 24px;
-         height: 24px;
-         &amp; + input {
-            padding-left: 5rem;
-            font-size: 24px;
-            &amp;::placeholder {
-               font-size: 24px;
-            }
-         }
-      }
-   }
+    }
+  }
 `;
 &nbsp;
 export const InputComponent = styled.input&lt;InputFieldProps&gt;`
-   display: block;
-   width: 100%;
-   font-weight: 400;
-   color: white;
-   background-color: transparent;
-   padding: 1rem 0.5rem;
-   transition: 0.3s;
-   outline: 0;
-   ${(props) =&gt;
-      props.variant === 'outline'<span class="branch-0 cbranch-no" title="branch not covered" > &amp;&amp;</span>
-<span class="cstat-no" title="statement not covered" >      css`</span>
-<span class="cstat-no" title="statement not covered" >         border: 0px solid #e9e9f040;</span>
-<span class="cstat-no" title="statement not covered" >         border-bottom-width: 2px;</span>
-<span class="cstat-no" title="statement not covered" >         font-size: 16px;</span>
-<span class="cstat-no" title="statement not covered" >         color: ${Theme.colors.textDark};</span>
-<span class="cstat-no" title="statement not covered" >         transition: 0.5s;</span>
-<span class="cstat-no" title="statement not covered" >         transform-origin: left;</span>
-<span class="cstat-no" title="statement not covered" >         &amp; + label {</span>
-<span class="cstat-no" title="statement not covered" >            left: 0.5rem;</span>
-<span class="cstat-no" title="statement not covered" >            font-size: 16px;</span>
-<span class="cstat-no" title="statement not covered" >         }</span>
-      `}
-   ${(props) =&gt;
-      props.variant === 'fill' &amp;&amp;
-      css`
-         border: 1px solid ${Theme.colors.inputBorder};
-         border-radius: 10rem;
-         height: 50px;
-         color: ${Theme.colors.textDark};
-         padding: 0.5rem 1.5rem;
-         background: ${Theme.colors.textWhite};
-         backdrop-filter: blur(30px);
-         max-width: 1000px;
-         &amp; + {
-            color: #8d9da2;
-            font-size: 16px;
-            font-weight: 500;
-         }
-         @media (min-width: ${Theme.breakPoints.ipad}) {
-            height: 75px;
-         }
-      `}
-      border-color: ${(props) =&gt; props.isError<span class="branch-0 cbranch-no" title="branch not covered" > &amp;&amp; '#C53030'}</span>;
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  color: white;
+  background-color: transparent;
+  padding: ${Theme.spacings.space08} ${Theme.spacings.space04};
+  transition: 0.3s;
+  outline: 0;
+  ${(props) =&gt;
+    props.variant === "outline"<span class="branch-0 cbranch-no" title="branch not covered" > &amp;&amp;</span>
+<span class="cstat-no" title="statement not covered" >    css`</span>
+<span class="cstat-no" title="statement not covered" >      border: 0rem solid #e9e9f040;</span>
+<span class="cstat-no" title="statement not covered" >      border-bottom-width: ${Theme.spacings.space01};</span>
+<span class="cstat-no" title="statement not covered" >      font-size: ${Theme.spacings.space08};</span>
+<span class="cstat-no" title="statement not covered" >      color: ${Theme.colors.textDark};</span>
+<span class="cstat-no" title="statement not covered" >      transition: 0.5s;</span>
+<span class="cstat-no" title="statement not covered" >      transform-origin: left;</span>
+<span class="cstat-no" title="statement not covered" >      &amp; + label {</span>
+<span class="cstat-no" title="statement not covered" >        left: ${Theme.spacings.space04};</span>
+<span class="cstat-no" title="statement not covered" >        font-size: ${Theme.spacings.space08};</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+    `}
+  ${(props) =&gt;
+    props.variant === "fill" &amp;&amp;
+    css`
+      border: ${Theme.spacings.space00} solid ${Theme.colors.blue};
+      border-radius: ${Theme.spacings.space02};
+      height: ${Theme.spacings.space21};
+      color: ${Theme.colors.blue};
+      padding: ${Theme.spacings.space04} ${Theme.spacings.space11};
+      background: ${Theme.colors.textWhite};
+      backdrop-filter: blur(30px);
+      max-width: 62.5rem;
+      &amp; + {
+        color: #8d9da2;
+        font-size: ${Theme.spacings.space08};
+        font-weight: 500;
+      }
+      @media (min-width: ${Theme.breakPoints.ipad}) {
+        height: 4.75rem;
+      }
+    `}
+      border-color: ${(props) =&gt; props.isError<span class="branch-0 cbranch-no" title="branch not covered" > &amp;&amp; "#C53030"}</span>;
 `;
 export const LabelComponent = styled.label&lt;
-   HTMLLabelElement | { focused: boolean }
+  HTMLLabelElement | { focused: boolean }
 &gt;`
-   position: absolute;
-   top: 0;
-   left: 0;
-   color: white;
-   transition: 0.3s;
-   pointer-events: none;
-   transform: ${(props) =&gt;
-<span class="cstat-no" title="statement not covered" >      props.focused</span>
-<span class="cstat-no" title="statement not covered" >         ? 'translate(-.5rem, -.75rem) scale(0.75)'</span>
-         : 'translate(0, .5rem) scale(1)'};
-`;</pre></td></tr></table></pre>
+  position: absolute;
+  top: -10px;
+  left: 23px;
+  font-size: ${Theme.sizes.textMedium};
+  letter-spacing: 0.4px;
+  color: ${Theme.colors.blue};
+  background: ${Theme.colors.textWhite};
+  transition: 0.3s;
+  pointer-events: none;
+  
+`;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon May 16 2022 23:48:23 GMT-0300 (Horário Padrão de Brasília)
+                at Mon Jun 13 2022 21:43:59 GMT-0300 (Horário Padrão de Brasília)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

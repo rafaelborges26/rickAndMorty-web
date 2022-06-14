@@ -1,10 +1,9 @@
-import { render } from '@testing-library/react'
+import { render } from "@testing-library/react";
 
-import { Home } from '../Home'
+import { Home } from ".";
 
-test('should be able render page  ', () => {
-    const  { getByText } = render(<Home  />)
+test("should be able render page  ", () => {
+  render(<Home />);
 
-     expect(Home).toBeInTheDocument()
-    
-})
+  expect(Home).toBeTruthy();
+});

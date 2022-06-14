@@ -1,52 +1,71 @@
-import Logo from '../../assets/pokemonLogo.svg'
+import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { HeaderContainer, ContainerLogo, Options } from './styles'
-import { TextSelect } from '../index'
-import { useState, useMemo } from 'react'
-import { useNavigate } from 'react-router-dom'
+import Logo from "../../assets/RickAndMortyLogo.png";
+import { TextSelect } from "../index";
+import { HeaderContainer, ContainerLogo, Options } from "./styles";
 
-export const Header = () => {
+export function Header() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
-
-    const route: '' | 'dashboard' | 'contato' = useMemo(() => {
-        const params = new URL(window.location).pathname;
-        console.log(params, 'para')
-        const formatRoute = params.replace('/', '')
-        if(formatRoute === '' || formatRoute === 'dashboard' || formatRoute === 'contato')
-            return formatRoute
-
-        return ''
-    },[])
-
-    const [option, setOption] = useState<'' | 'dashboard' | 'contato'>(route)
-
+  const route: "" | "characters" | "places" | "episodios" = useMemo(() => {
+    const params = new URL(window.location).pathname;
     
-
-    const onChangeOption = (option: '' | 'dashboard' | 'contato') => {
-        setOption(option)
-        navigate(`/${option}`)
-    }
-
-    return (
-        <HeaderContainer>
-            <ContainerLogo>
-                <img src={Logo} alt="Pokemon Logotipo" />
-            </ContainerLogo>
-
-            <Options>
-                <TextSelect active={option === ''} size='M' weight='bold' onClick={() => onChangeOption('')} >
-                    Home
-                </TextSelect>
-                <TextSelect active={option === 'dashboard'} size='M' weight='bold' onClick={() => onChangeOption('dashboard')} >
-                    Pokemons
-                </TextSelect>
-                <TextSelect active={option === 'contato'} size='M' weight='bold' onClick={() => onChangeOption('contato')} >
-                    Contato
-                </TextSelect>
-            </Options>
-            
-
-        </HeaderContainer>
+    const formatRoute = params.replace("/", "");
+    if (
+      formatRoute === "" ||
+      formatRoute === "characters" ||
+      formatRoute === "places" || 
+      formatRoute === "episodios"
     )
+      return formatRoute;
+
+    return "";
+  }, []);
+
+  const [option, setOption] = useState<
+    "" | "characters" | "places" | "episodios"
+  >(route);
+
+  const onChangeOption = (
+    option: "" | "characters" | "places" | "episodios"
+  ) => {
+    setOption(option);
+    navigate(`/${option}`);
+  };
+
+  return (
+    <HeaderContainer>
+      <ContainerLogo onClick={() => onChangeOption("")}>
+        <img src={Logo} alt="Rick e Morty Logotipo" />
+      </ContainerLogo>
+
+      <Options>
+        <TextSelect
+          active={option === "characters"}
+          size="M"
+          weight="bold"
+          onClick={() => onChangeOption("characters")}
+        >
+          Personagens
+        </TextSelect>
+        <TextSelect
+          active={option === "places"}
+          size="M"
+          weight="bold"
+          onClick={() => onChangeOption("places")}
+        >
+          Lugares Famosos
+        </TextSelect>
+        <TextSelect
+          active={option === "episodios"}
+          size="M"
+          weight="bold"
+          onClick={() => onChangeOption("episodios")}
+        >
+          Episódios
+        </TextSelect>
+      </Options>
+    </HeaderContainer>
+  );
 }

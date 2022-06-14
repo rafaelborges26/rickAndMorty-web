@@ -1,18 +1,19 @@
-import { fireEvent, render, waitFor, act } from '@testing-library/react'
+import { fireEvent, render, waitFor, act } from "@testing-library/react";
 
-import { Input } from '../Input'
+import { Input } from ".";
 
-test('should render Checkbox  ', async () => {
-    const { getByPlaceholderText } = render(<Input id='Teste' type='search' alt='Testing' placeholder='Testing input'  />)
+test("should render Checkbox  ", async () => {
+  const { getByPlaceholderText } = render(
+    <Input id="Teste" type="search" alt="Testing" placeholder="Testing input" />
+  );
 
-    const input = getByPlaceholderText('Testing input')
+  const input = getByPlaceholderText("Testing input");
 
-    await waitFor(() => {
-        act(() => {
-    fireEvent.click(input)
+  await waitFor(() => {
+    act(() => {
+      fireEvent.click(input);
 
-    fireEvent.change(input, 'testing')
-        })
-    })
-
-})
+      fireEvent.change(input, "testing");
+    });
+  });
+});

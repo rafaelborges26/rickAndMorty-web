@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.44% </span>
+                <span class="strong">86.04% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>38/45</span>
+                <span class='fraction'>37/43</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.44% </span>
+                <span class="strong">86.04% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>38/45</span>
+                <span class='fraction'>37/43</span>
             </div>
         
             
@@ -106,8 +106,7 @@
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -119,10 +118,6 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -144,6 +139,8 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -151,58 +148,58 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span></td><td class="text"><pre class="prettyprint lang-js">import { useMemo } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { Header, Button } from '../../components'
-import { Container, Content, ContainerInfo, ContentInfo, Title, Description, ContentImage } from './styles'
-import BannerPokemon from '../../assets/BannerPokemon.svg'
-import Theme from '../../theme'
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 &nbsp;
-//maxwidth 768 botao pequeo
-export const Home = () =&gt; {
+import RickAndMortyPlant from "../../assets/RickAndMortyPlant.png";
+import { Header, Button } from "../../components";
+import Theme from "../../theme";
+import { Container, Content, Title, ContentImage, Text } from "./styles";
 &nbsp;
-    const navigate = useNavigate();
+export function Home() {
+  const navigate = useNavigate();
 &nbsp;
-    const buttonSize = useMemo(() =&gt; {
-<span class="cstat-no" title="statement not covered" >        if(screen.width &lt;= parseInt(Theme.breakPoints.mediumMobile)) {</span>
-<span class="cstat-no" title="statement not covered" >            return 'S'</span>
-<span class="cstat-no" title="statement not covered" >        } else if( (screen.width &lt;= parseInt(Theme.breakPoints.ipadPro)) &amp;&amp; (screen.width &gt;= (parseInt(Theme.breakPoints.mediumMobile)))){</span>
-<span class="cstat-no" title="statement not covered" >            return 'B'</span>
-<span class="cstat-no" title="statement not covered" >        } else { </span>
-<span class="cstat-no" title="statement not covered" >            return 'M'</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
-    },[])
+  const buttonSize = useMemo(() =&gt; {
+<span class="cstat-no" title="statement not covered" >    if (screen.width &lt;= parseInt(Theme.breakPoints.mobile)) {</span>
+<span class="cstat-no" title="statement not covered" >      return "S";</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >    return "B";</span>
+  }, []);
 &nbsp;
-    return (
-        &lt;Container&gt;
-        &lt;Header/&gt;
-        &lt;Content&gt;
-            &lt;ContainerInfo&gt;
-                &lt;ContentInfo&gt;
-                    &lt;Title&gt;Qual pokemon&lt;/Title&gt;
-                    &lt;Title&gt;você escolheria?&lt;/Title&gt;
+  return (
+    &lt;Container&gt;
+      &lt;Header /&gt;
+      &lt;Content&gt;
+        &lt;Title&gt;Está preparado para navegar no mundo&lt;/Title&gt;
+        &lt;Title&gt;de Ricky and Morty ?&lt;/Title&gt;
 &nbsp;
-                    &lt;Description&gt;Você pode saber o tipo de Pokémon,&lt;/Description&gt;
-                    &lt;Description&gt;seus pontos fortes, fracos e habilidades.&lt;/Description&gt;
-                &lt;Button size={buttonSize} onClick={<span class="fstat-no" title="function not covered" >() =&gt; {navigate('/dashboard')}} &gt;V</span>eja os pokemons&lt;/Button&gt;
-                &lt;/ContentInfo&gt;
-            &lt;/ContainerInfo&gt;
-            
+        &lt;ContentImage
+          src={RickAndMortyPlant}
+          alt="banner do rick and morty com fundo verde"
+        /&gt;
 &nbsp;
-            &lt;ContentImage&gt;
-                &lt;img src={BannerPokemon} alt="banner do pokemon pikachu jogando uma pokebola" /&gt;
-            &lt;/ContentImage&gt;
-        &lt;/Content&gt;
-        &lt;/Container&gt;
-    )
-}</pre></td></tr></table></pre>
+        &lt;Button
+          size={buttonSize}
+          onClick={<span class="fstat-no" title="function not covered" >() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            navigate("/characters");</span>
+<span class="cstat-no" title="statement not covered" >          }}</span>
+        &gt;
+          Iniciar Aventura
+        &lt;/Button&gt;
+        &lt;Text&gt;©rickandmortyapi.com&lt;/Text&gt;
+      &lt;/Content&gt;
+    &lt;/Container&gt;
+  );
+}
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon May 16 2022 23:48:23 GMT-0300 (Horário Padrão de Brasília)
+                at Mon Jun 13 2022 21:43:59 GMT-0300 (Horário Padrão de Brasília)
             </div>
         <script src="../../../prettify.js"></script>
         <script>
